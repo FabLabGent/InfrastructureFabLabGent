@@ -1,7 +1,7 @@
 resource "azurerm_iothub" "example" {
   name                = var.name
-  resource_group_name = azurerm_resource_group.FabLab.name
-  location            = azurerm_resource_group.FabLab.location
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
 
   sku {
     name     = "S1"
@@ -10,12 +10,12 @@ resource "azurerm_iothub" "example" {
 
   endpoint {
     type                       = "AzureIotHub.StorageContainer"
-    connection_string          = azurerm_storage_account.example.primary_blob_connection_string
+    connection_string          = azurerm_storage_account.sa.primary_blob_connection_string
     name                       = "export"
     batch_frequency_in_seconds = 60
     max_chunk_size_in_bytes    = 10485760
-    container_name             = azurerm_storage_container.example.name
-    encoding                   = "json"
+    container_name             = azurerm_storage_container.sc.name
+    encoding                   = var.encoding
     file_name_format           = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"
   }
 
