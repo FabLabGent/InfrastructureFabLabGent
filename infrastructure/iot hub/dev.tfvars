@@ -1,2 +1,0 @@
-name = "FabLabIoTHub"
-encoding = "json"
