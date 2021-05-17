@@ -1,4 +1,4 @@
-environment                             = "acept"
+environment                             = "accept"
 iothub_sku_name                         = "B1"
 iothub_sku_capacity                     = "1"
 key_vault_sku_name                      = "standard"
